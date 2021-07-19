@@ -12,19 +12,19 @@ class Person(object):
         self.address = address
 
 
-   def to_string(self, param):
-       print(f'안녕하세요, 제 이름은 {param.name}이고,나이는{param.age},{param.address}에서 거주합니다.')
+    def to_string(self):
+        print(f'안녕하세요, 제 이름은{self.name}이고,나이는{self.age},{self.address}에서 거주합니다.')
 
 
     @staticmethod
     def main():
         count = int(int(input('How many ?')))
-        fot i in range(count):
-            person = Person(input('name'),input('age'),input('address'))
-        for i in count:
-            person.to_string(person)
-
-
+        people = []
+        for i in range(count):
+            person = Person(input('name'), input('age'), input('address'))
+            people.append(person)
+        for person in people:
+            person.to_string()
 
 
 Person.main()
