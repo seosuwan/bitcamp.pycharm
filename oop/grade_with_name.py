@@ -32,27 +32,23 @@ class Credit(object):
 
         avg = cre.avg()
         if avg >= 90:
-            print(cre + 'A')
+            result = 'A'
 
         elif avg >= 80:
-            print(cre + 'B')
+            result = 'B'
 
         elif avg >= 70:
-            print(cre + 'C')
+            result = 'C'
 
         elif avg >= 60:
-            print(cre + 'D')
+            result = 'D'
 
         elif avg >= 50:
-            print(cre + 'E')
+            result = 'E'
 
         else:
-            print(cre + 'F')
-
-
-
-
-
+            result = 'F'
+        print(f'{result}')
 
 
 Credit.main()
