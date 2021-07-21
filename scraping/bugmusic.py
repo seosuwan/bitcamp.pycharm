@@ -14,6 +14,7 @@ class Bugmusic(object):
         self.url = url
 
     def scrap(self):
+
         soup = BeautifulSoup(urlopen(self.url), 'lxml')
         n_artist = 0
         ls_artists = soup.findAll('p', {'class':'artist'})
@@ -24,8 +25,6 @@ class Bugmusic(object):
             print('Artist' + j.find('a').text)
             print('Title' + ls_title[i].find('a').text)
 
-
-
         '''
         for i in range(len(n_title)):
             title = n_title[i].text.strip().split('\n')[0]
@@ -33,9 +32,8 @@ class Bugmusic(object):
             print(':Rank: {} {} {}'.format(i+1, title, artist))
         '''
 
-
-
 def main():
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57'}
     Bugmusic(f'https://music.bugs.co.kr/chart/track/realtime/total?'
                         f'chartdate={20210720}&charthour={16}').scrap()
 

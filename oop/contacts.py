@@ -30,7 +30,7 @@ def del_contact(ls, name):
 
 
 def print_menu():
-    ls = ['EXIT', 'Add', 'Print', 'Delate']
+    ls = ['EXIT', 'Add', 'Print', 'Delete']
     t = ''
     for i, j in enumerate(ls):
         t += str(i)+'-'+j+'\t'
@@ -45,7 +45,7 @@ def print_menu():
 def main():
     ls = []
     while 1:
-        menu = print_menu(['Exit', 'Add', 'Print', 'Delete'])
+        menu = print_menu()
         if menu == 1:
             t = set_contact()
             ls.append(t)
