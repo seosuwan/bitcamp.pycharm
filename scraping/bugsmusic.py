@@ -8,33 +8,40 @@ from urllib.request import urlopen
 '''
 
 
-class Bugmusic(object):
+class Bugsmusic(object):
 
     def __init__(self, url):
         self.url = url
 
     def scrap(self):
-
-        soup = BeautifulSoup(urlopen(self.url), 'lxml')
-        n_artist = 0
-        ls_artists = soup.findAll('p', {'class':'artist'})
-        ls_title = soup.findAll('p', {'class':'title'})
-        for i, j in enumerate(ls_artists):
-            n_artist += 1
-            print('Rank :' + str(n_artist), end='\t')
-            print('Artist' + j.find('a').text)
-            print('Title' + ls_title[i].find('a').text)
-
         '''
+        soup = BeautifulSoup(urlopen(self.url), 'lxml')
+        n_artists = soup.findAll('p', {'class': 'artist'})
+        n_title = soup.findAll('p', {'class': 'title'})
         for i in range(len(n_title)):
             title = n_title[i].text.strip().split('\n')[0]
             artist = n_artists[i].text.strip().split('\n')[0]
             print(':Rank: {} {} {}'.format(i+1, title, artist))
+
         '''
+        _= 0
+        soup = BeautifulSoup(urlopen(self.url), 'lxml')
+        artists = soup.findAll('p', {'class': 'artist'})
+        titles = soup.findAll('p', {'class': 'title'})
+        print(f'List size is{len(artists)}')
+        for i, j in zip(titles, artists):
+            _+= +1
+            print(f":RANK:{_} Artist: {j.find('a').text} Title: {i.find('a').text}")
+
+
+        
+        
+        
+
+
 
 def main():
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57'}
-    Bugmusic(f'https://music.bugs.co.kr/chart/track/realtime/total?'
+    Bugsmusic(f'https://music.bugs.co.kr/chart/track/realtime/total?'
                         f'chartdate={20210720}&charthour={16}').scrap()
 
 
