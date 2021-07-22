@@ -14,7 +14,7 @@ class Contacts():
         print(f'이름{self.name},전화번호{self.phone},이메일{self.email},주소{self.address}')
 
 
-def set_contact():
+def set_contact() -> object:
     return Contacts(input('name'), input('phone'), input('email'), input('address'))
 
 
@@ -29,8 +29,7 @@ def del_contact(ls, name):
             del ls[i]
 
 
-def print_menu():
-    ls = ['EXIT', 'Add', 'Print', 'Delete']
+def print_menu(ls) -> int:
     t = ''
     for i, j in enumerate(ls):
         t += str(i)+'-'+j+'\t'
@@ -45,7 +44,7 @@ def print_menu():
 def main():
     ls = []
     while 1:
-        menu = print_menu()
+        menu = print_menu(['EXIT', 'Add', 'Print', 'Delete'])
         if menu == 1:
             t = set_contact()
             ls.append(t)
