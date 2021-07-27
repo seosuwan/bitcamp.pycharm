@@ -18,6 +18,9 @@ class View(object):
         this.train = service.new_model(train)
         this.test = service.new_model(test)
         return this
+    def onepice(self):
+        names = ['a','b','dd']
+        pass
 
 
 if __name__ == '__main__':
