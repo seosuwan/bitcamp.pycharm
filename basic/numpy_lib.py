@@ -82,6 +82,19 @@ def np_mask():
     print(f'{[mask1*mask2]}') #java에서 && 연산
 
 
+def np_bubble():
+    x = np.random.randint(-100, 100, 1000)
+    y = np.random.randint(-100, 100, 1000)
+    size = np.random.randint(100) * 100
+    mask1 = abs(x) > 50
+    mask2 = abs(y) > 50
+    x = x[mask1 + mask2]
+    plt.scatter(x, y, s=size, c=x, cmap='jet', alpha=0.7)  # scatter 점점 흩뿌려지는거
+    plt.colorbar()
+    plt.show()
+
+
+
 
 if __name__ == '__main__':
     #show_numpy()
@@ -92,4 +105,5 @@ if __name__ == '__main__':
     #np_eye()
     #np_arange()
     #np_linspace()
-    np_mask()
+    #np_mask()
+    np_bubble()
