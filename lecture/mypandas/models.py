@@ -1,3 +1,9 @@
+import random
+
+import numpy as np
+import pandas as pd
+from icecream import ic
+
 class MyPandas(object):
     def __init__(self):
         print('### PANDAS QUIZ ###')
@@ -10,6 +16,9 @@ class MyPandas(object):
                  1  1  3  5
                  2  2  4  6
         '''
+        df = self.pandas_quiz1()
+        ic(type(df))
+        ic(df)
 
         '''         
         Q2. 다음 결과 출력
@@ -24,6 +33,9 @@ class MyPandas(object):
                  3   7   8   9
                  4  10  11  12
         '''
+        df1 = self.pandas_quiz2()
+        ic(type(df1))
+        ic(df1)
 
         ''' 
         Q3 두자리 정수를 랜덤으로 2행 3열 데이터프레임을 생성
@@ -31,7 +43,9 @@ class MyPandas(object):
                  0  95  25  74
                  1  44  24  97
         '''
-
+        df2 = self.pandas_quiz3()
+        ic(type(df2))
+        ic(df2)
         ''' 
 
         Q4 국어, 영어, 수학, 사회 4과목을 시험치른 10명의 학생들의 성적표 작성. 단 점수 0 ~ 100이고 학생은 랜덤 알파벳 5자리 ID 로 표기
@@ -50,7 +64,9 @@ class MyPandas(object):
                GOJKU  62  17  75  49
 
         '''
-
+        df3 = self.pandas_quiz4()
+        ic(type(df3))
+        ic(df3)
         ''' 
         Q5 4번 문제를 loc 를 통해 동일하게 작성
         ic| df5:        국어  영어  수학  사회
@@ -460,7 +476,23 @@ class MyPandas(object):
         Q14. DF 객체를 dictionary 로 변환
         ic| df14.to_dict(): {'A': {0: 1, 1: 2, 2: 3}, 'B': {0: 4, 1: 5, 2: 6}}
         '''
+    def pandas_quiz1(self) -> object:
+        df = pd.DataFrame({'a':[1,2] ,'b':[3,4],'c':[5,6]})
+        df.index=[1,2]
+        return df
 
+    def pandas_quiz2(self) -> object:
+        df1 = pd.DataFrame({'A':[1,4,7,10],'B':[2,5,8,11],'C':[3,6,9,12]})
+        df1.index=[1,2,3,4]
+        return df1
 
+    def pandas_quiz3(self) -> object:
+        df2 = pd.DataFrame(np.random.randint(10, 100, size=(2, 3)))
+        return df2
+
+    def pandas_quiz4(self) -> object:
+        df = pd.DataFrame(np.random.randint(10, 100, size=(4, 4)))
+        
+        return df
 if __name__ == '__main__':
     MyPandas()
